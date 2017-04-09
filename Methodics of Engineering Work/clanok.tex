@@ -1,0 +1,109 @@
+% Metódy inžinierskej práce, ak. rok 2014/15
+% Miroslav Kuchar
+%Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2014/15, vedenie: Mgr. Martin Bobák
+\documentclass[10pt,twoside,slovak,a4paper]{article}
+
+\usepackage[slovak]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[IL2]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url} % príkaz \url na formátovanie URL
+\usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
+\usepackage{cite}
+\usepackage{times}
+\usepackage[dvips,dvipdfm,a4paper,centering,textwidth=14cm,top=4.6cm,headsep=.6cm,footnotesep=1cm,footskip=0.6cm,bottom=3.8cm]{geometry}
+
+\pagestyle{headings}
+
+\title{Game Over, Insert Coin(s)}
+\author{Miroslav Kuchar\\[2pt]
+	{\small Slovenská technická univerzita v Bratislave}\\
+	{\small Fakulta informatiky a informačných technológií}\\
+	{\small \texttt{xkucharm1@is.stuba.sk}}
+	}
+
+\date{\small 1.November 2014} %datum vyhotovenia
+
+\begin{document}
+
+\maketitle
+
+\section{Úvod}  \label{uvod}
+
+V mojej práci sa budem bližšie zaoberať problematikou tvorby reaktívneho zábavného softwaru(ďalej len hrami). Bližšie by som moju prácu špecifikoval, ako opis spolupráce moderným spôsobom medzi vývojárom a používateľom(ďalej len hráčom). Ako výsledok vznikne popis kolaboratívnej časti tvorby hry postupne od začiatku až po koniec. Moja práca bude obsahovať aj vyjadrenia na sociálne, historické, technické a etické okolnosti týkajúce sa hier samotných.\cite{NST:Understanding}
+
+
+\paragraph{Spoločenské súvislosti}
+Hry sú fenomén dnešnej doby. Prerazili už aj medzi staršie ročníky a berú sa ako vítaný druh odreagovania a zábavy. V niektorých štátoch síce stále podliehajú silnému cenzúrovaniu(napr. Čína), ale aj to je vďaka internetu čoraz viac skôr delikátnosťou ako samozrejmosťou.
+\paragraph{Historické súvislosti}
+V minulosti sa široká verejnosť s hrami nestretávala, vznikali skôr ako vedľajší produkt keď sa znudení programátori po večeroch venovali zábavným projektom pre tím kolegov. Nebolo ich ani možné šíriť lebo fungovali iba na určitom type počítača.
+\paragraph{Technológia a ľudia}
+Hry si prešli azda všetkými programovacími jazykmi v rôzne zložitých podobách. Postupne sa začali usýdlovať na herných konzolách a dnes sa nachádzajú skoro na každom každodenne využívanom zariadení. Hry hrané programátormi a ich najlbližšími členmi rodín a kolegami sú už dávno za nami a dnes sa udomácnili v každej vekovej kategórií nezávisle od programovacích schopností a IT zručností všeobecne.
+\paragraph{Udržateľnosť a etika}
+Myslím si, že hry majú potenciál prenikať čoraz viac do bežného života a rozvíjať sa či už graficky alebo technicky. V minulosti až doteraz bolo veľa narážok na všeobecnú etiku, hlavne na krv a deti prítomné v hrách. Platí však že zdravý človek nemá žiadnu náklonnosť niečo urobiť po zahraní si akejkoľvek hry.
+
+\newpage
+\section{Analýza problému } \label{analyza}
+
+Herný priemysel\cite{Fullerton:Game} ako celok, vznikol kvôli potrebe človeka odreagovať sa od každodenných problémov. Teda jediným argumentom pre jeho tvorbu je človek, ktorý sa chce okrem práce a povinností, aj zabávať. Človek, ako tvorca musí tlmiť svoje subjektívne pocity a nápady ku produktu (hre) a prispôsobiť sa mase hráčov. Niet predaja, niet priemyslu. No ako to dosiahnuť? Ako získať ten chcený efekt objektívneho názoru na to kam by hra mala smerovať? Nová doba navyše vytvára obrovskú konkurencieschopnosť,  kde si hráč  môže vybrať naprieč celým spektrom hier rôznych žánrov a motívov. Tým sú vývojári motivovaní čoraz viac a čoraz užšie spolupracovať so samotnými hráčmi.
+
+\subsection{Momentálny trend v PC hrách} \label{trend}
+V súčasnej dobe sa najlepšie predávajú hlavne hry, ktoré sú tvorené ako pokračovanie úspešnej zabehnutej série \cite{Record} (pokračovanie hry tzv. sequel) pričom tieto tituly patria nadnárodným korporáciam s multimiliónovými rozpočtami\ref{fig:mesh1} pre vyvíjané hry. Navyše dnes, v dobe dostupného a hlavne stabilného internetu, je MultiPlayer viac ako vítanou formou hry. Tu nastáva zlom, keď hráči ako dobrovoľní testeri vylaďujú kľúčové elementy do posledného detailu.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.70\textwidth]{budget}
+    \caption{Rozpočty Rôznych Hier}
+    \label{fig:mesh1}
+\end{figure}
+
+\section{Predpoklady na spoluprácu} \label{predpoklady}
+
+Čo potrebujeme na to aby sme mohli spolupracovať?\cite{Fine:Beta} V prvom rade hlavne chuť a vôľu, potom už máme len pár drobností ohľadom technického riešenia  a spravovania dát. Testovanie je komplexný proces, ktorý podlieha istým fázam a vyplíva z neho rôzne množstvo dát a dôsledkov. Každý proces musí mať svoju postupnosť. Ak by sme generalizovali, dal by sa tento proces rozdeliť na niekoľko podprocesov.
+
+\newpage
+\section{Rozelenie postupu pri testovaní} \label{postup}\ref{fig:mesh2}
+
+\begin{itemize}
+\item Naplánovanie Projektu
+\item Verbovanie účastníkov
+\item Distribúcia beta-verzie produktu
+\item Zber dát
+\item Vyhodnotenie dát
+\item Zhodnotenie beta testovania
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{diagram}
+    \caption{Postup Testovania}
+    \label{fig:mesh2}
+\end{figure}
+
+\section{Opis postupu pri testovaní \cite{Process}} \label{opis}
+
+\subsection{Naplánovanie projektu}
+Pred začatím každého cyklu beta-testovania je potrebné si určiť presné ciele rovnako ako ich počet, teda všetko to čo chceme beta-testovaním dosiahnuť. Určenie týchto cieľov vopred pomáha tvorcom vymedziť si čas potrebný na beta-testovanie rovnako ako zaistenie dostatočného množstva účastníkov beta-testovania.
+
+\subsection{Verbovanie účastníkov}
+Proces beta-testovania začne výberom beta-testerov, vo väčšine sú to samotní hráči, ktorí už hrali predošlé verzie hry alebo si len zakúpili iný titul daného vydavateľstva. Samotní hráči však beta-testovanie využívajú skôr na hranie a získavanie skúseností do budúcnosti. Kvôli tomuto do beta-testovania nastupujú aj profesionálni (tj. platení) beta-testeri ktorý vyslovene len hľadajú chyby v mechanike hier alebo sú konkrétne zameraní na isté špecifikum. Počet testerov sa odlišuje v závislosti od veľkosti projektu. Platí tu ale pravidlo že na beta-teste by sa malo zúčasniť prinajmenšom 10 ľudí. V závislosti od veľkosti projektu môže toto číslo dosiahnuť až päť cifier.
+
+\subsection{Distribúcia beta-verzie produktu}
+Produkt určený na testovanie musí byť pred zahájením patrične rozdistribuovaný k účastníkom(beta-testerom) testovania. V súčasnej dobe rýchleho, stabilného a dostupného  internetu sa preferuje digitálna distribúcia namiesto zastaraného fyzického nosiča (napr. DVD). Je to optimálny spôsob z dôvodu že naliehavé opravy (tzv. hotfix-y) sa ku testerovi inak ako cez internet nedostanú, vo väčšine prípadov ani nieje možné bez internetu danú hru testovať.
+
+\subsection{Zber dát}
+Najpodstatnejšia fáza celého procesu beta-testovania. Tú vývojársky tím získava cenné informácie o produkte. Informácie sa vyskytujú v rôznych formách, počnúc typickými hláseniami chýb pokračujúc poznámkam ku hre až po vývojármi tvorenými anketami ohľadom produktu. Na tieto účely sa využívajú rôzne zberné miesta. Typickým nástrojom sú kolonky implementované priamo v hre (ingame) ktoré informáciu získanú od testera posielajú priamo do serverov tvorcu (vývojára). Na diskusie ohľadom správnosti rôznych mechaník, zápletky alebo vyváženia hry sa využívajú fóra, v poslednej dobe veľa vývojárov využíva fóra napísané v jazyku pHpBB, kvôli jednoduchosti tvorby novej témy (tzv. topic) a jeho spravovaním. Individuálne sa konzultuje aj s najaktívnejšími testermi či už osobne alebo cez rôzne komunikačné nástroje.
+
+\subsection{Vyhodnotenie dát}
+Beta-testovaním sa získa obrovské množstvo dát ktoré je potrebné triediť a najmä podľa dôležitosti aj začať riešiť (tj. opravovať). Časom by sa však mali prejsť všetky informácie a na základe úsudku vývojára aj posúdiť, či si problém vyžaduje opravu alebo je v súlade s tým čo má daná funkcia robiť alebo nie. Zber informácií stráca význam, ak je už vopred zmarená príprava na beta-testovanie alebo, ak vývojár nevyčlení dostatočne veľký tím na zvládnutie vyhodnotenia. Hlavná funkcia vyhodnotenia je nachádzanie chýb v produkte, no môže viesť aj k iným zmenám, ak na danú vec reaguje mnoho testerov (napr. príbeh hry).
+
+\subsection{Zhodnotenie beta testovania}
+Záverečná fáza beta testovania, z vyhodnotených dát sa vytvoria vytvoria verejne dostupné výsledky beta-testu. Postupne sa uzavrú alebo znefunkčnia beta verzie produktu a nasleduje interné (v rámci vývoja) dotvorenie produktu. Testeri by mali byť informovaní o výsledkoch. Zároveň by tvorcovia mali aspoň poďakovať všetkým účastníkom beta-testovania.
+
+\section{Záverečné zhodnotenie práce} \label{zaver}
+V mojej práci som sa venoval popisu celého procesu kolaboratívnej tvorby hry medzi vývojárom a testermi. Zahrnul som aj paragrafy o etike,technológií, histórií a spoločenských súvislostiach. Začal som s analýzou celého problému tvorby kde som cielene zahrnul aj súčasné trendy v hernom priemysle. Postupoval som opisom predpokladov na kolaboráciu až som nakoniec kompletne opísal všetky fázy vzájomnej spolupráce. Čitateľ by mal byť informovaný o modernom postupe v beta-testovaní hier. 
+
+\bibliographystyle{alpha}
+\bibliography{zdroj}
+\end{document}
