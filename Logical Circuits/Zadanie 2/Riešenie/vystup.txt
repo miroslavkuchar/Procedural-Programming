@@ -1,0 +1,9 @@
+# prevodník z AIKEN do Gray
+A = (b&c);
+
+B = (!a&b) | (a);
+
+C = (b&d) | (!a&c) | (b&c) | (!a&b);
+
+D = (a&!d) | (!c&d) | (c&!d);
+
